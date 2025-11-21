@@ -11,7 +11,8 @@
 	<groupId>com.project</groupId>
 	<artifactId>bookstore</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bookstore</name>
+    <packaging>pom</packaging>
+    <name>bookstore</name>
 	<description>Pet project Book Store</description>
 	<url/>
 	<licenses>
@@ -20,7 +21,11 @@
 	<developers>
 		<developer/>
 	</developers>
-	<scm>
+    <modules>
+        <module>api-gateway</module>
+        <module>catalog-service</module>
+    </modules>
+    <scm>
 		<connection/>
 		<developerConnection/>
 		<tag/>
