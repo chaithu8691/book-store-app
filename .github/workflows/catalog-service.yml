@@ -23,4 +23,5 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
       - name: Build code
+        working-directory: ${{env.working-directory}}
         run: ./mnvw clean install
