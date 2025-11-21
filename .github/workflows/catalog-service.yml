@@ -1,5 +1,6 @@
 name: catalog-service
 on:
+  workflow_dispatch:
   push:
     paths:
       - catalog-service/**
@@ -23,4 +24,5 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
       - name: Build code
+        working-directory: ${{env.working-directory}}
         run: ./mnvw clean install
