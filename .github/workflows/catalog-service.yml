@@ -29,4 +29,4 @@ jobs:
 
       - name: Build code
         working-directory: ${{ env.working-directory }}
-        run: ./catalog-service/mnvw clean install
+        run: ./mvnw clean install
