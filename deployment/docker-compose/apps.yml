@@ -1,0 +1,25 @@
+name: "BookStore application deployments"
+services:
+  catalog-service:
+    image: ${DOCKERHUB_USERNAME}/bookstore-catalog-service
+    container_name: bookstore-catalog-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DB_URL=${POSTGRES_URL}
+      - DB_USERNAME=${POSTGRES_USERNAME}
+      - DB_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+    depends_on:
+      catalog-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD","curl", "-f", "http://localhost:8081/actuator/health"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 800m
