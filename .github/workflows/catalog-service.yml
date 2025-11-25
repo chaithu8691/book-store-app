@@ -31,7 +31,7 @@ jobs:
 
       - name: Build code
         working-directory: ${{ env.working-directory }}
-        run: ./mnvw -ntp verify
+        run: ./mvnw -ntp verify
 
       - if: ${{ github.ref == 'refs/heads/main' }}
         name: Login to Docker hub
